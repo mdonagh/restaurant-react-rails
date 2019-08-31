@@ -10,34 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_11_235649) do
+ActiveRecord::Schema.define(version: 2019_08_31_003452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "restaurants", force: :cascade do |t|
-    t.string "name"
-    t.string "address"
-    t.string "description"
+  create_table "meals", force: :cascade do |t|
+    t.string "text"
+    t.date "date"
+    t.time "time"
+    t.integer "calories"
     t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.decimal "average_rating", precision: 2
-    t.integer "highest_rating"
-    t.integer "lowest_rating"
-    t.index ["user_id"], name: "index_restaurants_on_user_id"
-  end
-
-  create_table "reviews", force: :cascade do |t|
-    t.integer "rating"
-    t.text "user_comment"
-    t.text "owner_reply"
-    t.integer "user_id"
-    t.integer "restaurant_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["restaurant_id"], name: "index_reviews_on_restaurant_id"
-    t.index ["user_id"], name: "index_reviews_on_user_id"
+    t.boolean "met_goal"
   end
 
   create_table "users", force: :cascade do |t|
