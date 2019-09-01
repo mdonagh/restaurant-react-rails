@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
 import SignupContainer from './containers/Containers';
-import { HomeContainer } from './containers/Containers';
+import { MealsContainer } from './containers/Containers';
 import { MealContainer } from './containers/Containers';
 import { LoginContainer } from './containers/Containers';
 import { UsersContainer } from './containers/Containers';
 import { UserContainer } from './containers/Containers';
+import { ShowUserContainer } from './containers/Containers';
 import * as serviceWorker from './serviceWorker';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 import { Provider as ReduxProvider } from "react-redux";
@@ -20,18 +21,18 @@ const routing = (
     <Router>
         <ul>
           <li>
-            <Link to="/home">Home</Link>
+            <Link to="/meals">Meals</Link>
           </li>
         </ul>
       <div className="mt-4 mb-4">
         <Route exact path="/" component={App} />
         <Route path="/login" component={LoginContainer} />
-        <Route path="/home" component={HomeContainer} />
+        <Route path="/meals" component={MealsContainer} />
         <Route path="/signup" component={SignupContainer} />
         <Route path="/meal" component={MealContainer} />
         <Route path="/meal-edit/:id" component={MealContainer} />
         <Route path="/users" component={UsersContainer} />
-        <Route path="/user" component={UserContainer} />
+        <Route path="/user/:id" component={ShowUserContainer} />
         <Route path="/user-edit/:id" component={UserContainer} />
       </div>
     </Router>

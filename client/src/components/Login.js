@@ -38,7 +38,7 @@ export default class Login extends Component {
       return <Redirect to="/owner"/>
     }
     else if(this.props.tokenAuthHeaders.role){
-      return <Redirect to="/home"/>
+      return <Redirect to="/meals"/>
     }
     else{
       return (

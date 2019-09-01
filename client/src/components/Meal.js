@@ -106,7 +106,7 @@ createMeal = async () => {
 
   render() {
     if(this.state.redirect){
-      return <Redirect to="/home"/>
+      return <Redirect to="/meals"/>
     }
     else{
       return (

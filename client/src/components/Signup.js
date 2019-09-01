@@ -46,7 +46,7 @@ export default class Signup extends Component {
 
   render() {
     if(this.props.tokenAuthHeaders.role){
-      return <Redirect to="/home"/>
+      return <Redirect to="/meals"/>
     }
     else{
       return (

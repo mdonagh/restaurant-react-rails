@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Table, Row, Container, Spinner, Button, Col } from "react-bootstrap";
 import AccessControl from './AccessControl'
 
-class Home extends React.Component {
+class Meals extends React.Component {
   constructor(props) {
     super(props);
     this.state = { count: 0, isLoaded: false, meals: [] };
@@ -114,4 +114,4 @@ render () {
 }
 }
 
-export default Home;
+export default Meals;
