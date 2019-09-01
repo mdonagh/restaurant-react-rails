@@ -1,12 +1,12 @@
 import React from 'react';
 import logo from '../logo.svg';
 import '../App.css';
-import SignupComponent from '../containers/Signup';
+import { SignupContainer } from '../containers/Containers';
 
 function App() {
   return (
     <div className="App">
-    <SignupComponent />
+    <SignupContainer />
     </div>
   );
 }

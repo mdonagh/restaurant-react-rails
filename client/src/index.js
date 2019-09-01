@@ -2,13 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
-import HomeComponent from './containers/Home';
-import ShowRestaurantComponent from './containers/ShowRestaurant';
-import MealComponent from './containers/Meal';
-import RestaurantOwnerComponent from './containers/RestaurantOwner';
-import LoginComponent from './containers/Login';
-import SignupComponent from './containers/Signup';
-import UsersComponent from './containers/Users';
+import HomeContainer from './containers/Containers';
+import MealContainer from './containers/Containers';
+import LoginContainer from './containers/Containers';
+import SignupContainer from './containers/Containers';
+import UsersContainer from './containers/Containers';
 import * as serviceWorker from './serviceWorker';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 import { Provider as ReduxProvider } from "react-redux";
@@ -26,14 +24,12 @@ const routing = (
         </ul>
       <div className="mt-4 mb-4">
         <Route exact path="/" component={App} />
-        <Route path="/login" component={LoginComponent} />
-        <Route path="/home" component={HomeComponent} />
-        <Route path="/signup" component={SignupComponent} />
-        <Route path='/restaurant/:id' component={ShowRestaurantComponent} />
-        <Route path="/meal" component={MealComponent} />
-        <Route path="/meal-edit/:id" component={MealComponent} />
-        <Route path="/owner" component={RestaurantOwnerComponent} />
-        <Route path="/users" component={UsersComponent} />
+        <Route path="/login" component={LoginContainer} />
+        <Route path="/home" component={HomeContainer} />
+        <Route path="/signup" component={SignupContainer} />
+        <Route path="/meal" component={MealContainer} />
+        <Route path="/meal-edit/:id" component={MealContainer} />
+        <Route path="/users" component={UsersContainer} />
       </div>
     </Router>
   </ReduxProvider>
