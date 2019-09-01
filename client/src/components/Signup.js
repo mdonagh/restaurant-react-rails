@@ -10,7 +10,8 @@ export default class Signup extends Component {
       email: "",
       password: "",
       role: "0",
-      calories: 0
+      calories: 0,
+      redirect: false
     };
     this.signUp = this.signUp.bind(this);
   }
@@ -41,10 +42,13 @@ export default class Signup extends Component {
     const response = await request;
     console.log(response)
     console.log(this.state)
+     this.setState({
+        redirect: true
+      });
   }
 
   render() {
-    if(this.props.tokenAuthHeaders.role){
+    if(this.state.redirect){
       return <Redirect to="/home"/>
     }
     else{
