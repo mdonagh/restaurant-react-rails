@@ -15,9 +15,8 @@ export default class User extends Component {
         email: "",
         calories: "",
         role: "",
-        password: "",
-        redirect: false
-    };     
+        password: ""
+         };     
 
     if(this.props.ownProps.match.params.id){
       this.state = {};
@@ -27,6 +26,8 @@ export default class User extends Component {
 
 updateUser = async () => {
   let user = { user: {
+    id: this.props.ownProps.match.params.id,
+    uid: this.state.email,
     email: this.state.email,
     calories: this.state.calories,
     role: this.state.role
@@ -34,6 +35,7 @@ updateUser = async () => {
 
   const request = this.props.putRequest("/users/" + this.props.ownProps.match.params.id, user);
   const response = await request;
+  console.log(response)
 }
 
 getUser = async (id) => {
@@ -43,7 +45,6 @@ getUser = async (id) => {
     this.setState({
       email: response.data.email,
       calories: response.data.calories,
-      password: response.data.password,
       role: response.data.role
     });
 }
@@ -51,13 +52,13 @@ getUser = async (id) => {
 createUser = async () => {
   console.log(this.props)
   let user = { user: {
+    uid: this.state.email,
     email: this.state.email,
     calories: this.state.calories,
     role: this.state.role,
-    password: this.state.password
   }}
   console.log(user)
-  const request = this.props.postRequest('/users', user);
+  const request = this.props.postRequest('/auth', user);
   const response = await request;
 }
 
@@ -80,16 +81,15 @@ createUser = async () => {
     }
     else{
       this.createUser();
-    }
-    
-    this.setState(() => ({
-      redirect: true
-    }));
+    }    
+    // this.setState(() => ({
+    //   redirect: true
+    // }));
     event.preventDefault();
   }
 
   render() {
-   if(this.state.redirect){
+   if(false){
       return <Redirect to="/users"/>
     }
     else{

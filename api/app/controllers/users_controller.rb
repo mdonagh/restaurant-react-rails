@@ -13,13 +13,11 @@ class UsersController < ApplicationController
   def create
   	return head 403 unless current_user.admin? || current_user.user_manager?
     User.create(user_params)
-    head 201
   end
 
   def update
   	return head 403 unless current_user.admin? || current_user.user_manager?
-    User.update(user_params)
-    head 201
+    User.find(params[:user][:id]).update(user_params)
   end
 
   def destroy

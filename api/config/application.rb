@@ -16,7 +16,7 @@ module TopTalCalories
       resource '*', 
         headers: :any, 
         expose: ['access-token', 'expiry', 'token-type', 'uid', 'client'],
-        methods: [:get, :post, :options, :patch, :delete]
+        methods: [:get, :post, :options, :put, :patch, :delete]
     end
   end
   end
