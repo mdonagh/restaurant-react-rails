@@ -63,8 +63,8 @@ const mergeProps = (state, actions) => ({
   postRequest: function (url, body) {
     return this.apiRequest(url, 'post', body)
   },
-  patchRequest: function (url, body) {
-    return this.apiRequest(url, 'patch', body)
+  putRequest: function (url, body) {
+    return this.apiRequest(url, 'put', body)
   },
   deleteRequest: function (url, body) {
     return this.apiRequest(url, 'delete', body)
@@ -81,3 +81,4 @@ const ContainerCreator = connect(
   )
 
   export default ContainerCreator
+  

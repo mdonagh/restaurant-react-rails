@@ -4,10 +4,11 @@ import './index.css';
 import App from './components/App';
 import HomeComponent from './containers/Home';
 import ShowRestaurantComponent from './containers/ShowRestaurant';
-import NewRestaurantComponent from './containers/NewRestaurant';
+import MealComponent from './containers/Meal';
 import RestaurantOwnerComponent from './containers/RestaurantOwner';
 import LoginComponent from './containers/Login';
 import SignupComponent from './containers/Signup';
+import UsersComponent from './containers/Users';
 import * as serviceWorker from './serviceWorker';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 import { Provider as ReduxProvider } from "react-redux";
@@ -29,8 +30,10 @@ const routing = (
         <Route path="/home" component={HomeComponent} />
         <Route path="/signup" component={SignupComponent} />
         <Route path='/restaurant/:id' component={ShowRestaurantComponent} />
-        <Route path="/new-restaurant" component={NewRestaurantComponent} />
+        <Route path="/meal" component={MealComponent} />
+        <Route path="/meal-edit/:id" component={MealComponent} />
         <Route path="/owner" component={RestaurantOwnerComponent} />
+        <Route path="/users" component={UsersComponent} />
       </div>
     </Router>
   </ReduxProvider>

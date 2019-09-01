@@ -9,7 +9,8 @@ export default class Signup extends Component {
     this.state = {
       email: "",
       password: "",
-      role: "0"
+      role: "0",
+      calories: 0
     };
     this.signUp = this.signUp.bind(this);
   }
@@ -34,17 +35,17 @@ export default class Signup extends Component {
   signUp = async () => {
     let user = { email: this.state.email, 
                  password: this.state.password,
-                 role: parseInt(this.state.role) }
+                 role: parseInt(this.state.role),
+                 calories: this.state.calories }
     const request = this.props.createAccount(user)
     const response = await request;
+    console.log(response)
+    console.log(this.state)
   }
 
   render() {
-    if(this.props.tokenAuthHeaders.role && this.props.tokenAuthHeaders.role === 'user'){
+    if(this.props.tokenAuthHeaders.role){
       return <Redirect to="/home"/>
-    }
-    else if(this.props.tokenAuthHeaders.role && this.props.tokenAuthHeaders.role === "restaurant_owner"){
-      return <Redirect to="/owner"/>
     }
     else{
       return (
@@ -52,21 +53,34 @@ export default class Signup extends Component {
       <Row className="justify-content-md-center">
         <div className="Signup">
         <form onSubmit={this.handleSubmit}>
+        
         <FormGroup controlId="email" size="large">
         <FormControl
         autoFocus
         type="email"
+        placeholder= "email"
         value={this.state.email}
         onChange={this.handleChange}
         />
         </FormGroup>
+        
         <FormGroup controlId="password" size="large">
         <FormControl
         value={this.state.password}
         onChange={this.handleChange}
+        placeholder= "password"
         type="password"
         />
         </FormGroup>
+
+        <FormGroup controlId="calories" size="large">
+        <FormControl
+        value={this.state.calories}
+        onChange={this.handleChange}
+        placeholder= "daily calorie goal"
+        />
+        </FormGroup>
+
         <FormGroup controlId="role">
           <FormLabel>I am a...</FormLabel>
           <FormControl 
@@ -75,11 +89,13 @@ export default class Signup extends Component {
             onChange={this.handleChange}
           >
             <option value="0">User</option>
-            <option value="1">Restaurant Owner</option>
+            <option value="1">User Manager</option>
+            <option value="2">Admin</option>
           </FormControl>
         </FormGroup>
 
         <FormGroup>
+        <FormLabel>Daily Calorie Goal</FormLabel>
         <Button
         block
         size="large"
