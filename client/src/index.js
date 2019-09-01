@@ -2,11 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
-import HomeContainer from './containers/Containers';
-import MealContainer from './containers/Containers';
-import LoginContainer from './containers/Containers';
 import SignupContainer from './containers/Containers';
-import UsersContainer from './containers/Containers';
+import { HomeContainer } from './containers/Containers';
+import { MealContainer } from './containers/Containers';
+import { LoginContainer } from './containers/Containers';
+import { UsersContainer } from './containers/Containers';
+import { UserContainer } from './containers/Containers';
 import * as serviceWorker from './serviceWorker';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 import { Provider as ReduxProvider } from "react-redux";
@@ -19,7 +20,7 @@ const routing = (
     <Router>
         <ul>
           <li>
-            <Link to="/home">All Restaurants</Link>
+            <Link to="/home">Home</Link>
           </li>
         </ul>
       <div className="mt-4 mb-4">
@@ -30,6 +31,8 @@ const routing = (
         <Route path="/meal" component={MealContainer} />
         <Route path="/meal-edit/:id" component={MealContainer} />
         <Route path="/users" component={UsersContainer} />
+        <Route path="/user" component={UserContainer} />
+        <Route path="/user-edit/:id" component={UserContainer} />
       </div>
     </Router>
   </ReduxProvider>

@@ -10,16 +10,16 @@ export default class Signup extends Component {
       email: "",
       password: "",
       role: "0",
-      calories: 0,
-      redirect: false
+      calories: 0
     };
     this.signUp = this.signUp.bind(this);
   }
 
   validateForm() {
-    return this.state.email.length > 0 &&
-            this.state.password.length > 0 &&
-            (this.state.role === "0" || this.state.role === "1")
+    return true
+    // return this.state.email.length > 0 &&
+    //         this.state.password.length > 0 &&
+    //         (this.state.role === "0" || this.state.role === "1")
   }
 
   handleChange = event => {
@@ -42,13 +42,10 @@ export default class Signup extends Component {
     const response = await request;
     console.log(response)
     console.log(this.state)
-     this.setState({
-        redirect: true
-      });
   }
 
   render() {
-    if(this.state.redirect){
+    if(this.props.tokenAuthHeaders.role){
       return <Redirect to="/home"/>
     }
     else{

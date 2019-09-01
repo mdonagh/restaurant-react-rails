@@ -10798,3 +10798,356 @@ Processing by UsersController#index as HTML
 Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.3ms)
 
 
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started POST "/auth" for ::1 at 2019-08-31 22:01:19 -0700
+Processing by DeviseTokenAuth::RegistrationsController#create as HTML
+  Parameters: {"email"=>"fdasfdas@mail.com", "password"=>"[FILTERED]", "role"=>1, "calories"=>"100"}
+HTTP Origin header (http://localhost:3000) didn't match request.base_url (http://localhost:3001)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."provider" = $2 LIMIT $3[0m  [["email", "fdasfdas@mail.com"], ["provider", "email"], ["LIMIT", 1]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "confirmed_at", "email", "tokens", "created_at", "updated_at", "role", "calories") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["uid", "fdasfdas@mail.com"], ["encrypted_password", "$2a$11$PX2dEA/ww8owranXF1hMFepElb2O/ETbrYtHp8vaZrWu875.uaiDC"], ["confirmed_at", "2019-09-01 05:01:19.923844"], ["email", "fdasfdas@mail.com"], ["tokens", "{}"], ["created_at", "2019-09-01 05:01:19.923705"], ["updated_at", "2019-09-01 05:01:19.923705"], ["role", 1], ["calories", 100]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"3dLpQ7B3MWYQYUuwDKyYsw\":{\"token\":\"$2a$12$AxcbihM7BCZdJ9WMtPMfX.TVkCu7UBbHD2XRqUE9Hg1FgkDtGqcbe\",\"expiry\":1568523679}}"], ["updated_at", "2019-09-01 05:01:20.117068"], ["id", 7]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.2ms)[0m  [1m[37mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"3dLpQ7B3MWYQYUuwDKyYsw\":{\"token\":\"$2a$12$tHlqyPan.9q.Y.HNEJNFH.72VigiPg.DTQabcNamL1b3EQEvZ/57i\",\"expiry\":1568523680,\"last_token\":\"$2a$12$AxcbihM7BCZdJ9WMtPMfX.TVkCu7UBbHD2XRqUE9Hg1FgkDtGqcbe\",\"updated_at\":\"2019-09-01T05:01:20.122Z\"}}"], ["updated_at", "2019-09-01 05:01:20.308917"], ["id", 7]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 200 OK in 501ms (Views: 0.4ms | ActiveRecord: 5.6ms)
+
+
+Started POST "/auth/sign_in.json" for ::1 at 2019-08-31 22:01:20 -0700
+Processing by DeviseTokenAuth::SessionsController#create as JSON
+  Parameters: {"email"=>"fdasfdas@mail.com", "password"=>"[FILTERED]"}
+HTTP Origin header (http://localhost:3000) didn't match request.base_url (http://localhost:3001)
+Unpermitted parameter: :format
+Unpermitted parameter: :format
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (email = 'fdasfdas@mail.com' AND provider='email') ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Unpermitted parameter: :format
+Unpermitted parameter: :format
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"3dLpQ7B3MWYQYUuwDKyYsw\":{\"token\":\"$2a$12$tHlqyPan.9q.Y.HNEJNFH.72VigiPg.DTQabcNamL1b3EQEvZ/57i\",\"expiry\":1568523680,\"last_token\":\"$2a$12$AxcbihM7BCZdJ9WMtPMfX.TVkCu7UBbHD2XRqUE9Hg1FgkDtGqcbe\",\"updated_at\":\"2019-09-01T05:01:20.122Z\"},\"BJs-fsSZiaedD3ffUYzxuw\":{\"token\":\"$2a$12$6L52FPQq1z0nTCQzhOHNMuBpmZsRjDYLwGnYSDT1q1ZhO2Ej5/WIG\",\"expiry\":1568523680}}"], ["updated_at", "2019-09-01 05:01:20.610371"], ["id", 7]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "current_sign_in_ip" = $3, "last_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["current_sign_in_at", "2019-09-01 05:01:20.612520"], ["last_sign_in_at", "2019-09-01 05:01:20.612520"], ["current_sign_in_ip", "::1"], ["last_sign_in_ip", "::1"], ["sign_in_count", 1], ["updated_at", "2019-09-01 05:01:20.613004"], ["id", 7]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.2ms)[0m  [1m[37mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"3dLpQ7B3MWYQYUuwDKyYsw\":{\"token\":\"$2a$12$tHlqyPan.9q.Y.HNEJNFH.72VigiPg.DTQabcNamL1b3EQEvZ/57i\",\"expiry\":1568523680,\"last_token\":\"$2a$12$AxcbihM7BCZdJ9WMtPMfX.TVkCu7UBbHD2XRqUE9Hg1FgkDtGqcbe\",\"updated_at\":\"2019-09-01T05:01:20.122Z\"},\"BJs-fsSZiaedD3ffUYzxuw\":{\"token\":\"$2a$12$ul3KWFprmfeMouxheO4ZvO4WB0T03GCnB5G1wUuMHa2nmng5Gh0.u\",\"expiry\":1568523680,\"last_token\":\"$2a$12$6L52FPQq1z0nTCQzhOHNMuBpmZsRjDYLwGnYSDT1q1ZhO2Ej5/WIG\",\"updated_at\":\"2019-09-01T05:01:20.616Z\"}}"], ["updated_at", "2019-09-01 05:01:20.801964"], ["id", 7]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 200 OK in 485ms (Views: 0.1ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/auth" for ::1 at 2019-08-31 22:04:22 -0700
+Processing by DeviseTokenAuth::RegistrationsController#create as HTML
+  Parameters: {"email"=>"sadfdsaf@mail.com", "password"=>"[FILTERED]", "role"=>1, "calories"=>"100"}
+HTTP Origin header (http://localhost:3000) didn't match request.base_url (http://localhost:3001)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."provider" = $2 LIMIT $3[0m  [["email", "sadfdsaf@mail.com"], ["provider", "email"], ["LIMIT", 1]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "confirmed_at", "email", "tokens", "created_at", "updated_at", "role", "calories") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["uid", "sadfdsaf@mail.com"], ["encrypted_password", "$2a$11$i7xNqrfkwunNcNyol.0PnuUr8efpkMiQmJqetxdawjsW36G6zzWWe"], ["confirmed_at", "2019-09-01 05:04:23.086382"], ["email", "sadfdsaf@mail.com"], ["tokens", "{}"], ["created_at", "2019-09-01 05:04:23.086337"], ["updated_at", "2019-09-01 05:04:23.086337"], ["role", 1], ["calories", 100]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"eKCEYypLKlLQPrKmswaCgw\":{\"token\":\"$2a$12$qCxua.l8XlA5gP3nlXIdSu/uXl0uXMJwJgSbjS9SEe.anxBNI1nNm\",\"expiry\":1568523863}}"], ["updated_at", "2019-09-01 05:04:23.279016"], ["id", 8]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.2ms)[0m  [1m[37mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"eKCEYypLKlLQPrKmswaCgw\":{\"token\":\"$2a$12$WpHSTV68KbMNPj364MU7XO07TNE4vIAPxNpJTGQkIbbg1sglXn.XK\",\"expiry\":1568523863,\"last_token\":\"$2a$12$qCxua.l8XlA5gP3nlXIdSu/uXl0uXMJwJgSbjS9SEe.anxBNI1nNm\",\"updated_at\":\"2019-09-01T05:04:23.283Z\"}}"], ["updated_at", "2019-09-01 05:04:23.470356"], ["id", 8]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 200 OK in 493ms (Views: 0.2ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/auth/sign_in.json" for ::1 at 2019-08-31 22:04:23 -0700
+Processing by DeviseTokenAuth::SessionsController#create as JSON
+  Parameters: {"email"=>"sadfdsaf@mail.com", "password"=>"[FILTERED]"}
+HTTP Origin header (http://localhost:3000) didn't match request.base_url (http://localhost:3001)
+Unpermitted parameter: :format
+Unpermitted parameter: :format
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (email = 'sadfdsaf@mail.com' AND provider='email') ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Unpermitted parameter: :format
+Unpermitted parameter: :format
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"eKCEYypLKlLQPrKmswaCgw\":{\"token\":\"$2a$12$WpHSTV68KbMNPj364MU7XO07TNE4vIAPxNpJTGQkIbbg1sglXn.XK\",\"expiry\":1568523863,\"last_token\":\"$2a$12$qCxua.l8XlA5gP3nlXIdSu/uXl0uXMJwJgSbjS9SEe.anxBNI1nNm\",\"updated_at\":\"2019-09-01T05:04:23.283Z\"},\"w3kAPCAiXd92R6ssqQzrJQ\":{\"token\":\"$2a$12$RKPBBgu8tJKDPjfEdaaI0eYvVQSpQ3ir0uInWO2PgofnUQ3F6mX0a\",\"expiry\":1568523863}}"], ["updated_at", "2019-09-01 05:04:23.763555"], ["id", 8]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "current_sign_in_ip" = $3, "last_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["current_sign_in_at", "2019-09-01 05:04:23.765771"], ["last_sign_in_at", "2019-09-01 05:04:23.765771"], ["current_sign_in_ip", "::1"], ["last_sign_in_ip", "::1"], ["sign_in_count", 1], ["updated_at", "2019-09-01 05:04:23.766865"], ["id", 8]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.2ms)[0m  [1m[37mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"eKCEYypLKlLQPrKmswaCgw\":{\"token\":\"$2a$12$WpHSTV68KbMNPj364MU7XO07TNE4vIAPxNpJTGQkIbbg1sglXn.XK\",\"expiry\":1568523863,\"last_token\":\"$2a$12$qCxua.l8XlA5gP3nlXIdSu/uXl0uXMJwJgSbjS9SEe.anxBNI1nNm\",\"updated_at\":\"2019-09-01T05:04:23.283Z\"},\"w3kAPCAiXd92R6ssqQzrJQ\":{\"token\":\"$2a$12$xxoF1PbqznkvcgKpGVxMau01MQxIEIQRVD3vtYv9tZeHwJkMXmgX6\",\"expiry\":1568523863,\"last_token\":\"$2a$12$RKPBBgu8tJKDPjfEdaaI0eYvVQSpQ3ir0uInWO2PgofnUQ3F6mX0a\",\"updated_at\":\"2019-09-01T05:04:23.780Z\"}}"], ["updated_at", "2019-09-01 05:04:23.968330"], ["id", 8]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 200 OK in 492ms (Views: 0.2ms | ActiveRecord: 3.9ms)
+
+
+Started POST "/auth" for ::1 at 2019-08-31 22:06:40 -0700
+Processing by DeviseTokenAuth::RegistrationsController#create as HTML
+  Parameters: {"email"=>"dfsafda@mail.com", "password"=>"[FILTERED]", "role"=>1, "calories"=>"99"}
+HTTP Origin header (http://localhost:3000) didn't match request.base_url (http://localhost:3001)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."provider" = $2 LIMIT $3[0m  [["email", "dfsafda@mail.com"], ["provider", "email"], ["LIMIT", 1]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "confirmed_at", "email", "tokens", "created_at", "updated_at", "role", "calories") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["uid", "dfsafda@mail.com"], ["encrypted_password", "$2a$11$RWaSQYnZaBTNX8S6rPQcw.WW5uevoBI27BHNpFlI8.83H8lYV.e4i"], ["confirmed_at", "2019-09-01 05:06:40.718884"], ["email", "dfsafda@mail.com"], ["tokens", "{}"], ["created_at", "2019-09-01 05:06:40.718817"], ["updated_at", "2019-09-01 05:06:40.718817"], ["role", 1], ["calories", 99]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"UKZARfO3wTjd4h9FSAnRkQ\":{\"token\":\"$2a$12$dHr2OAeaQ7Q7XuFQLkvplO4o0n4krBeIYwwna0menWtuCFRK4frEG\",\"expiry\":1568524000}}"], ["updated_at", "2019-09-01 05:06:40.952285"], ["id", 9]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (4.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.5ms)[0m  [1m[37mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"UKZARfO3wTjd4h9FSAnRkQ\":{\"token\":\"$2a$12$n874uAQsqD7wufk7sUWereJpTIFPjKYmRgvWn.kztB/U4ymQOPSMW\",\"expiry\":1568524000,\"last_token\":\"$2a$12$dHr2OAeaQ7Q7XuFQLkvplO4o0n4krBeIYwwna0menWtuCFRK4frEG\",\"updated_at\":\"2019-09-01T05:06:40.966Z\"}}"], ["updated_at", "2019-09-01 05:06:41.195517"], ["id", 9]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (3.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 200 OK in 611ms (Views: 1.0ms | ActiveRecord: 11.7ms)
+
+
+Started POST "/auth/sign_in.json" for ::1 at 2019-08-31 22:06:41 -0700
+Processing by DeviseTokenAuth::SessionsController#create as JSON
+  Parameters: {"email"=>"dfsafda@mail.com", "password"=>"[FILTERED]"}
+HTTP Origin header (http://localhost:3000) didn't match request.base_url (http://localhost:3001)
+Unpermitted parameter: :format
+Unpermitted parameter: :format
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (email = 'dfsafda@mail.com' AND provider='email') ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Unpermitted parameter: :format
+Unpermitted parameter: :format
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (1.6ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"UKZARfO3wTjd4h9FSAnRkQ\":{\"token\":\"$2a$12$n874uAQsqD7wufk7sUWereJpTIFPjKYmRgvWn.kztB/U4ymQOPSMW\",\"expiry\":1568524000,\"last_token\":\"$2a$12$dHr2OAeaQ7Q7XuFQLkvplO4o0n4krBeIYwwna0menWtuCFRK4frEG\",\"updated_at\":\"2019-09-01T05:06:40.966Z\"},\"oBDKkKh13YD8zzDc4q-90g\":{\"token\":\"$2a$12$Ct0gIkE9ER4fIS4xd2RzxO.aFKUjOno1ySWhUx3jL2hOwDXsdwmYi\",\"expiry\":1568524001}}"], ["updated_at", "2019-09-01 05:06:41.572636"], ["id", 9]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (1.5ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "current_sign_in_ip" = $3, "last_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["current_sign_in_at", "2019-09-01 05:06:41.580121"], ["last_sign_in_at", "2019-09-01 05:06:41.580121"], ["current_sign_in_ip", "::1"], ["last_sign_in_ip", "::1"], ["sign_in_count", 1], ["updated_at", "2019-09-01 05:06:41.582287"], ["id", 9]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (4.2ms)[0m  [1m[37mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"UKZARfO3wTjd4h9FSAnRkQ\":{\"token\":\"$2a$12$n874uAQsqD7wufk7sUWereJpTIFPjKYmRgvWn.kztB/U4ymQOPSMW\",\"expiry\":1568524000,\"last_token\":\"$2a$12$dHr2OAeaQ7Q7XuFQLkvplO4o0n4krBeIYwwna0menWtuCFRK4frEG\",\"updated_at\":\"2019-09-01T05:06:40.966Z\"},\"oBDKkKh13YD8zzDc4q-90g\":{\"token\":\"$2a$12$0Iayieq7BQoW.Huf1Cgw1u6c8CyxqjkeqWWRbiqkyM9g5EmH5ha9m\",\"expiry\":1568524001,\"last_token\":\"$2a$12$Ct0gIkE9ER4fIS4xd2RzxO.aFKUjOno1ySWhUx3jL2hOwDXsdwmYi\",\"updated_at\":\"2019-09-01T05:06:41.604Z\"}}"], ["updated_at", "2019-09-01 05:06:41.872025"], ["id", 9]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 200 OK in 664ms (Views: 0.7ms | ActiveRecord: 16.5ms)
+
+
+Started POST "/auth" for ::1 at 2019-08-31 22:10:20 -0700
+Processing by DeviseTokenAuth::RegistrationsController#create as HTML
+  Parameters: {"email"=>"sdafda@mail.com", "password"=>"[FILTERED]", "role"=>0, "calories"=>"100"}
+HTTP Origin header (http://localhost:3000) didn't match request.base_url (http://localhost:3001)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."provider" = $2 LIMIT $3[0m  [["email", "sdafda@mail.com"], ["provider", "email"], ["LIMIT", 1]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "confirmed_at", "email", "tokens", "created_at", "updated_at", "role", "calories") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["uid", "sdafda@mail.com"], ["encrypted_password", "$2a$11$ko70dfeZVVfPIi3NcHq9YuJgb6lzL8hb32uBJBRgrc6ZzSj8ziYyO"], ["confirmed_at", "2019-09-01 05:10:20.325671"], ["email", "sdafda@mail.com"], ["tokens", "{}"], ["created_at", "2019-09-01 05:10:20.325585"], ["updated_at", "2019-09-01 05:10:20.325585"], ["role", 0], ["calories", 100]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"WapyGb62i9rYH7H_WRC1WA\":{\"token\":\"$2a$12$JlqpZBzKjIBxS03ZOj0COOR3n1xe8thABkH2K3gBN9xl1.AkYBVA6\",\"expiry\":1568524220}}"], ["updated_at", "2019-09-01 05:10:20.556925"], ["id", 10]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.6ms)[0m  [1m[37mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"WapyGb62i9rYH7H_WRC1WA\":{\"token\":\"$2a$12$DgrBpa9.F3ZstP6aTyvIauZP4sePZv6NdGatzKGcCIDZvKCF3dRJu\",\"expiry\":1568524220,\"last_token\":\"$2a$12$JlqpZBzKjIBxS03ZOj0COOR3n1xe8thABkH2K3gBN9xl1.AkYBVA6\",\"updated_at\":\"2019-09-01T05:10:20.568Z\"}}"], ["updated_at", "2019-09-01 05:10:20.791291"], ["id", 10]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 200 OK in 595ms (Views: 0.2ms | ActiveRecord: 5.5ms)
+
+
+Started POST "/auth/sign_in.json" for ::1 at 2019-08-31 22:10:20 -0700
+Processing by DeviseTokenAuth::SessionsController#create as JSON
+  Parameters: {"email"=>"sdafda@mail.com", "password"=>"[FILTERED]"}
+HTTP Origin header (http://localhost:3000) didn't match request.base_url (http://localhost:3001)
+Unpermitted parameter: :format
+Unpermitted parameter: :format
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (email = 'sdafda@mail.com' AND provider='email') ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Unpermitted parameter: :format
+Unpermitted parameter: :format
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"WapyGb62i9rYH7H_WRC1WA\":{\"token\":\"$2a$12$DgrBpa9.F3ZstP6aTyvIauZP4sePZv6NdGatzKGcCIDZvKCF3dRJu\",\"expiry\":1568524220,\"last_token\":\"$2a$12$JlqpZBzKjIBxS03ZOj0COOR3n1xe8thABkH2K3gBN9xl1.AkYBVA6\",\"updated_at\":\"2019-09-01T05:10:20.568Z\"},\"QwOWUVIo5UABy7ssPMtKsw\":{\"token\":\"$2a$12$6MyvtGINJKDNx./p2H53g.hYUrrBEPVki45EYE55Q7dCmgJ5eqwfq\",\"expiry\":1568524220}}"], ["updated_at", "2019-09-01 05:10:21.125113"], ["id", 10]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "current_sign_in_ip" = $3, "last_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["current_sign_in_at", "2019-09-01 05:10:21.129855"], ["last_sign_in_at", "2019-09-01 05:10:21.129855"], ["current_sign_in_ip", "::1"], ["last_sign_in_ip", "::1"], ["sign_in_count", 1], ["updated_at", "2019-09-01 05:10:21.141358"], ["id", 10]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.3ms)[0m  [1m[37mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"WapyGb62i9rYH7H_WRC1WA\":{\"token\":\"$2a$12$DgrBpa9.F3ZstP6aTyvIauZP4sePZv6NdGatzKGcCIDZvKCF3dRJu\",\"expiry\":1568524220,\"last_token\":\"$2a$12$JlqpZBzKjIBxS03ZOj0COOR3n1xe8thABkH2K3gBN9xl1.AkYBVA6\",\"updated_at\":\"2019-09-01T05:10:20.568Z\"},\"QwOWUVIo5UABy7ssPMtKsw\":{\"token\":\"$2a$12$IISuTC8WxgzdiRfqXMZPSu7Uj5t4rNu8zKGofV64pP1YtEs43e4bO\",\"expiry\":1568524221,\"last_token\":\"$2a$12$6MyvtGINJKDNx./p2H53g.hYUrrBEPVki45EYE55Q7dCmgJ5eqwfq\",\"updated_at\":\"2019-09-01T05:10:21.149Z\"}}"], ["updated_at", "2019-09-01 05:10:21.370104"], ["id", 10]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 200 OK in 570ms (Views: 1.0ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/meals" for ::1 at 2019-08-31 22:11:41 -0700
+Processing by MealsController#index as HTML
+  [1m[36mMeal Load (1.0ms)[0m  [1m[34mSELECT "meals".* FROM "meals"[0m
+  ↳ app/controllers/meals_controller.rb:3
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/auth" for ::1 at 2019-08-31 22:11:45 -0700
+Processing by DeviseTokenAuth::RegistrationsController#create as HTML
+  Parameters: {"email"=>"sdfdafs@mail.com", "password"=>"[FILTERED]", "role"=>0, "calories"=>0}
+HTTP Origin header (http://localhost:3000) didn't match request.base_url (http://localhost:3001)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."provider" = $2 LIMIT $3[0m  [["email", "sdfdafs@mail.com"], ["provider", "email"], ["LIMIT", 1]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("uid", "encrypted_password", "confirmed_at", "email", "tokens", "created_at", "updated_at", "role", "calories") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["uid", "sdfdafs@mail.com"], ["encrypted_password", "$2a$11$cNPPzSXn2hTOLtlNkBcRVOiukPXP9.BEstbvD9pc4S.n2q5Zl8AN."], ["confirmed_at", "2019-09-01 05:11:45.626235"], ["email", "sdfdafs@mail.com"], ["tokens", "{}"], ["created_at", "2019-09-01 05:11:45.626181"], ["updated_at", "2019-09-01 05:11:45.626181"], ["role", 0], ["calories", 0]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"R7LKkdL2XPj8MD7MFccH5w\":{\"token\":\"$2a$12$ERa0uT2.Xq0ukMDbDHo.mOW0gKfqOstH8KpycDTO50Vl/krm.Kpiy\",\"expiry\":1568524305}}"], ["updated_at", "2019-09-01 05:11:45.844151"], ["id", 11]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.5ms)[0m  [1m[37mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"R7LKkdL2XPj8MD7MFccH5w\":{\"token\":\"$2a$12$VNHEpEO9Zp.5UNxx2uIfGOsX2etch23CI7nP5xSx81zVgXItkjDu6\",\"expiry\":1568524305,\"last_token\":\"$2a$12$ERa0uT2.Xq0ukMDbDHo.mOW0gKfqOstH8KpycDTO50Vl/krm.Kpiy\",\"updated_at\":\"2019-09-01T05:11:45.849Z\"}}"], ["updated_at", "2019-09-01 05:11:46.064753"], ["id", 11]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 200 OK in 562ms (Views: 0.2ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/auth/sign_in.json" for ::1 at 2019-08-31 22:11:46 -0700
+Processing by DeviseTokenAuth::SessionsController#create as JSON
+  Parameters: {"email"=>"sdfdafs@mail.com", "password"=>"[FILTERED]"}
+HTTP Origin header (http://localhost:3000) didn't match request.base_url (http://localhost:3001)
+Unpermitted parameter: :format
+Unpermitted parameter: :format
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (email = 'sdfdafs@mail.com' AND provider='email') ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Unpermitted parameter: :format
+Unpermitted parameter: :format
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"R7LKkdL2XPj8MD7MFccH5w\":{\"token\":\"$2a$12$VNHEpEO9Zp.5UNxx2uIfGOsX2etch23CI7nP5xSx81zVgXItkjDu6\",\"expiry\":1568524305,\"last_token\":\"$2a$12$ERa0uT2.Xq0ukMDbDHo.mOW0gKfqOstH8KpycDTO50Vl/krm.Kpiy\",\"updated_at\":\"2019-09-01T05:11:45.849Z\"},\"2W5qS44dlNgjlGG_2dAOOw\":{\"token\":\"$2a$12$gylfCKQaHBjus4z.zWrrRubXnlr6pLekeZbLx/xDX/TQtGoFd6bbC\",\"expiry\":1568524306}}"], ["updated_at", "2019-09-01 05:11:46.399276"], ["id", 11]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "current_sign_in_ip" = $3, "last_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["current_sign_in_at", "2019-09-01 05:11:46.402102"], ["last_sign_in_at", "2019-09-01 05:11:46.402102"], ["current_sign_in_ip", "::1"], ["last_sign_in_ip", "::1"], ["sign_in_count", 1], ["updated_at", "2019-09-01 05:11:46.402611"], ["id", 11]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.4ms)[0m  [1m[37mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (1.3ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"R7LKkdL2XPj8MD7MFccH5w\":{\"token\":\"$2a$12$VNHEpEO9Zp.5UNxx2uIfGOsX2etch23CI7nP5xSx81zVgXItkjDu6\",\"expiry\":1568524305,\"last_token\":\"$2a$12$ERa0uT2.Xq0ukMDbDHo.mOW0gKfqOstH8KpycDTO50Vl/krm.Kpiy\",\"updated_at\":\"2019-09-01T05:11:45.849Z\"},\"2W5qS44dlNgjlGG_2dAOOw\":{\"token\":\"$2a$12$wBnKFMmltfNLc/qyesIyQuQ5MWe9fau6DrIiYN5doNrxlXYP6CgDG\",\"expiry\":1568524306,\"last_token\":\"$2a$12$gylfCKQaHBjus4z.zWrrRubXnlr6pLekeZbLx/xDX/TQtGoFd6bbC\",\"updated_at\":\"2019-09-01T05:11:46.406Z\"}}"], ["updated_at", "2019-09-01 05:11:46.621643"], ["id", 11]]
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /Users/markdonahue/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Completed 200 OK in 554ms (Views: 0.2ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/meals" for ::1 at 2019-08-31 22:11:46 -0700
+Processing by MealsController#index as HTML
+  [1m[36mMeal Load (0.3ms)[0m  [1m[34mSELECT "meals".* FROM "meals"[0m
+  ↳ app/controllers/meals_controller.rb:3
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/meals" for ::1 at 2019-08-31 22:12:05 -0700
+Processing by MealsController#index as HTML
+  [1m[36mMeal Load (0.2ms)[0m  [1m[34mSELECT "meals".* FROM "meals"[0m
+  ↳ app/controllers/meals_controller.rb:3
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.2ms)
+
+

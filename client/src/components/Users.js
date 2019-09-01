@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import { Table, Row, Container, Spinner, Button, Col } from "react-bootstrap";
+import { Table, Row, Container, FormLabel, Spinner, Button, Col } from "react-bootstrap";
 import { Redirect } from 'react-router-dom'
 
 class Users extends React.Component {
