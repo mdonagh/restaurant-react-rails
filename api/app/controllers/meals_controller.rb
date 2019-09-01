@@ -4,7 +4,7 @@ class MealsController < ApplicationController
   end
 
   def owner_meals
-    return render json: Meal.where(user_id: current_user.id)
+    render json: Meal.where(user_id: current_user.id)
   end
 
   def show
@@ -17,19 +17,20 @@ class MealsController < ApplicationController
     params['meal']['time'] = Time.at(params['meal']['time'])
     params['meal']['date'] = Date.parse(params['meal']['date'])
     Meal.create(meal_params)
-    head 201
   end
 
   def update
     params['meal']['user_id'] = current_user.id
     Meal.find(params['id']).update(meal_params)
-    head 202
   end
 
   def destroy
     #return head 403 unless current_user.admin?
     Meal.find(params['id']).destroy
-    head 204
+  end
+
+  def meals_for_user
+    render json: Meal.where(user_id: params[:id])
   end
 
   private
