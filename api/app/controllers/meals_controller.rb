@@ -5,7 +5,6 @@ class MealsController < ApplicationController
 
   def owner_meals
     return render json: Meal.where(user_id: current_user.id)
-    head 403
   end
 
   def show
