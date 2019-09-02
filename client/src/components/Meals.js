@@ -1,7 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import { Table, Row, Container, Spinner, Button, Col } from "react-bootstrap";
+import { Table, Row, Container, Spinner, Button, Col, FormGroup, FormControl, FormLabel } from "react-bootstrap";
 import AccessControl from './AccessControl'
+import DatePicker from "react-datepicker";
+import TimePicker from 'react-bootstrap-time-picker';
+
+import "react-datepicker/dist/react-datepicker.css";
 
 class Meals extends React.Component {
   constructor(props) {
@@ -27,12 +31,65 @@ class Meals extends React.Component {
     this.getMeals();
   }
 
+  setStartDate = (event) => {
+    this.setState({
+      startDate: event
+    });
+  }
+
+  setEndDate = (event) => {
+    this.setState({
+      endDate: event
+    });
+  }
+
+  setEndTime = event => {
+    this.setState({
+      endTime: event
+    });
+    console.log(this.state)
+  }
+
+  setStartTime = event => {
+    this.setState({
+      startTime: event
+    });
+    console.log(this.state)
+  }
+
   deleteMeal(meal_id){
     this.deleteMealRequest(meal_id)
   }
 
+  handleSubmit = event => {
+    this.filterMeals()
+    event.preventDefault();
+  }
+
+  handleChange = event => {
+    this.setState({
+      [event.target.id]: event.target.value
+    });
+  }
+
+  filterMeals = async () => {
+    console.log(this.state)
+
+    const queryParams = {
+      startDate: this.state.startDate,
+      endDate: this.state.endDate,
+      endTime: this.state.endTime,
+      startTime: this.state.startTime
+    }
+    const request = this.props.getRequestQuery("/filtered_meals/", queryParams);
+    const response = await request;
+    if (this._isMounted) {
+      this.setState({meals: response.data})
+    }
+  }
+
   getMeals = async () => {
-    const request = this.props.getRequest('/meals');
+    const request = this.props.getRequest('/my_meals');
     const response = await request;
     if (this._isMounted) {
       this.setState({meals: response.data})
@@ -45,6 +102,68 @@ render () {
   <Container>
   <Row>
     <Col><Link to="/meal"><Button variant="link">New Meal</Button></Link></Col>
+    <form onSubmit={this.handleSubmit}>
+      <Col>
+        <FormGroup controlId="startDate" size="small">
+          <DatePicker
+            selected={this.state.startDate}
+            onChange={this.setStartDate}
+            value={this.state.startDate}
+            placeholder="date"
+          />
+        </FormGroup>
+      </Col>
+      <Col>
+        <FormGroup controlId="end" size="small">
+          <DatePicker
+            selected={this.state.endDate}
+            onChange={this.setEndDate}
+            value={this.state.endDate}
+            placeholder="date"
+          />
+        </FormGroup>
+      </Col>
+
+      <Col>
+        <FormGroup controlId="time">
+          <TimePicker 
+            autoFocus start="0:00"
+            end="24:00"
+            step={60}
+            onChange={this.setStartTime}
+            value={this.state.startTime}
+            placeholder="Start Time" 
+          />
+        </FormGroup>
+      </Col>
+
+      <Col>
+        <FormGroup controlId="time">
+          <TimePicker 
+            autoFocus start="0:00"
+            end="24:00"
+            step={60}
+            onChange={this.setEndTime}
+            value={this.state.endTime}
+            placeholder="End Time" 
+          />
+        </FormGroup>
+      </Col>
+
+
+      <Col>
+        <FormGroup>
+        <FormLabel>Daily Calorie Goal</FormLabel>
+        <Button
+        block
+        size="large"
+        type="submit"
+        >
+        Filter
+        </Button>
+        </FormGroup>
+      </Col>
+    </form>
     <Col>
           { this.isAdmin ? 
             <Link to="/users">

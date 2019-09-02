@@ -69,6 +69,24 @@ const mergeProps = (state, actions) => ({
   deleteRequest: function (url, body) {
     return this.apiRequest(url, 'delete', body)
   },
+  getRequestQuery: function (url, params) {
+    return axios({ method: 'get',
+                   url: "http://localhost:3001" + url,
+                   params: params,
+                   headers: this.tokenAuthHeaders
+                })
+      .then((response) => {
+        console.log(response.headers);
+      if ('access-token' in response.headers && response.headers['access-token'].length > 0){
+        this.updateToken({'access-token' : response.headers['access-token']});
+      }
+      console.log(response)
+      return response;
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  },
   getRequest: function (url) {
     return this.apiRequest(url, 'get')
   },

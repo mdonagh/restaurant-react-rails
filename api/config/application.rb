@@ -9,6 +9,8 @@ Bundler.require(*Rails.groups)
 module TopTalCalories
   class Application < Rails::Application
   config.load_defaults 5.2
+  config.active_job.queue_adapter = :delayed_job
+
 
   config.middleware.insert_before 0, Rack::Cors do
     allow do

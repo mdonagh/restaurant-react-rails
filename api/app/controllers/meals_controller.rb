@@ -3,7 +3,7 @@ class MealsController < ApplicationController
     render json: Meal.all
   end
 
-  def owner_meals
+  def my_meals
     render json: Meal.where(user_id: current_user.id)
   end
 
@@ -31,6 +31,16 @@ class MealsController < ApplicationController
 
   def meals_for_user
     render json: Meal.where(user_id: params[:id])
+  end
+
+  def filtered_meals
+    params.permit(:startDate, :endDate, :endTime, :startTime)
+    @meals = Meal.where(user_id: current_user.id)
+    @meals = @meals.where("date >= ?", params[:startDate]) if params[:startDate]
+    @meals = @meals.where("date <= ?", params[:endDate]) if params[:endDate]
+    @meals = @meals.where("time >= ?", params[:startTime]) if params[:startTime]
+    @meals = @meals.where("time <= ?", params[:endTime]) if params[:endTime]
+    render json: @meals
   end
 
   private

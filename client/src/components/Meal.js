@@ -117,12 +117,12 @@ createMeal = async () => {
 
         <FormGroup controlId="time">
           <TimePicker 
-            autoFocus start="3:00"
+            autoFocus start="0:00"
             end="24:00"
-            step={30}
+            step={60}
             onChange={this.setTime}
             value={this.state.time}
-            placeholder="12:00" 
+            placeholder="12:00 PM" 
           />
         </FormGroup>
 
