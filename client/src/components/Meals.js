@@ -187,32 +187,32 @@ render () {
         <tbody>
           {
             this.state.meals.map(meal => (
-              <tr key={meal.id} align="start">
-              <td><Link to={"/meal/" + meal.id}>{meal.text}</Link></td>
-              <td>{meal.date}</td>
-              <td>{new Date(meal.time * 1000).toISOString().substr(11, 8)}</td>
-              <td>{meal.calories}</td>
-              <td>
-              <Link to={"/meal-edit/" + meal.id}>
-              <Button
-                block
-                bsize="small"
-                variant="warning"
-              >
-              Edit
-              </Button>
-              </Link>
-              <Button
-                block
-                bsize="small"
-                variant="danger"
-                onClick={() => this.deleteMeal(meal.id)}
-              >
-              Delete
-              </Button>
-            </td>
+              <tr key={meal.id} align="start" className={(meal.met_goal) ? 'table-success' : 'table-danger'}>
+                <td><Link to={"/meal/" + meal.id}>{meal.text}</Link></td>
+                <td>{meal.date}</td>
+                <td>{new Date(meal.time * 1000).toISOString().substr(11, 8)}</td>
+                <td>{meal.calories}</td>
+                <td>
+                <Link to={"/meal-edit/" + meal.id}>
+                <Button
+                  block
+                  bsize="small"
+                  variant="warning"
+                >
+                Edit
+                </Button>
+                </Link>
+                <Button
+                  block
+                  bsize="small"
+                  variant="danger"
+                  onClick={() => this.deleteMeal(meal.id)}
+                >
+                Delete
+                </Button>
+                </td>
               </tr>
-              ))
+            ))
           }
         </tbody>
       </Table>
